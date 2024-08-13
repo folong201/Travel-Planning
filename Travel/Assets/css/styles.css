@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #EFEFEF;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background: url('./../images/destinations/cam3.jpg') no-repeat center center;
+    background-size: cover;
+
+}
+
+.navbar {
+    padding: 1rem;
+}
+
+.navbar .btn{
+    font-weight: bold;
+}
+
+.hero {
+    color: white;
+    text-align: center;
+    padding: 200px 0;
+}
+
+.hero .container {
+    max-width: 700px;
+}
+
+.hero h1 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    margin-bottom: 30px;
+}
+
+.hero .btn{
+    background-color: #76777D;
+    color: #000000;
+    border-radius: 20px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+
+/* Section: Destination */
+.destination .text{
+    padding-left: 50px;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+.carousel-item {
+    padding: 15px;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #000;
+    border-radius: 50%;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+
+
+

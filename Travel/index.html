@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Plan.com</title>
+    <link rel="stylesheet" href="./Assets/css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+            <div class="container-fluid">
+                <a class="btn" href="#">Go Plan.com</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="./pages/login.html">Destinations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About Us</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <a href="./pages/login.html" class="btn btn-outline-primary me-2">Login</a>
+                        <a href="./pages/signup.html" class="btn btn-outline-primary me-2">SignUp</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="container">
+                <h1 class="display-4">Plan Your Perfect Trip</h1>
+                <p class="lead">Find destinations, take your travel ticket, book accommodation and manage your itinerary effortlessly</p>
+                <a href="#" class="btn btn-lg">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+     <!-- Section: Destination -->
+    <section class="destination">
+        <div class="container my-5">
+            <h2 class="text">You might like this</h2>
+            <p class="text">More things to do in Cameroon</p>
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card">
+                                    <img src="./Assets/images/destinations/lobe-fall.jpg" class="card-img-top" alt="Lobe Waterfall">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Lobe Waterfall</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <img src="./Assets/images/destinations/monument-de-la-reunification.jpg" class="card-img-top" alt="Reunification Monument">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Reunification Monument</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <img src="./Assets/images/destinations/douala art.jfif" class="card-img-top" alt="Douala Art">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Douala Art</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <img src="./Assets/images/destinations/Mont-Cameroun.jpg" class="card-img-top" alt="Mount Cameroon">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Mount Cameroon</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <img src="./Assets/images/destinations/mefou-national-park.jpg" class="card-img-top" alt="Lobe Waterfall">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Mefou National Park</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <img src="./Assets/images/destinations/musee nationale.jfif" class="card-img-top" alt="Lobe Waterfall">
+                                    <div class="card-body">
+                                        <h5 class="card-title">National Museum of Yaounde</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <img src="./Assets/images/destinations/musee maritime.jfif" class="card-img-top" alt="Lobe Waterfall">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Maritme Museum of Douala</h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Add more carousel items if needed -->
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+    
+    </section>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>
