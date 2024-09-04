@@ -13,7 +13,7 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
             <div class="container-fluid">
-                <a class="btn" href="#">Go Plan.com</a>
+                <h4 class="btn" href="#">Go Plan.com</h4>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -48,7 +48,7 @@
     </header>
 
      <!-- Section: Destination -->
-    <section class="destination">
+    <!-- <section class="destination">
         <div class="container my-5">
             <h2 class="text">You might like this</h2>
             <p class="text">More things to do in Cameroon</p>
@@ -114,9 +114,9 @@
                             </div>
 
                         </div>
-                    </div>
+                    </div> -->
                     <!-- Add more carousel items if needed -->
-                </div>
+                <!-- </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
@@ -127,12 +127,82 @@
                 </button>
             </div>
     
-    </section>
+    </section> -->
+
+    <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./Assets/images/destinations/lobe-fall.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./Assets/images/destinations/Mont-Cameroun.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./Assets/images/destinations/Musée-national-du-Cameroun.webp" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <footer class="footer mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <p>© 2024<a href="#">Privacy</a></p>
+                    <p><a href="#">Terms and Conditions</a></p>
+                    <p>Go Plan.com</p>
+                </div>
+                <div class="col-sm-3">
+                    <h6>Socials</h6>
+                    <div class="social-icons">
+                        <a href="#"><img src="./Assets/images/logos/linkedin.webp" alt="LinkedIn"></a>
+                        <a href="#"><img src="./Assets/images/logos/twitter.png" alt="Twitter"></a>
+                        <a href="#"><img src="./Assets/images/logos/facebook.png" alt="Facebook"></a>
+                        <a href="#"><img src="./Assets/images/logos/insta.webp" alt="Instagram"></a>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <h6>Pages</h6>
+                    <p><a href="#">About Us</a></p>
+                    <p><a href="#">Contact</a></p>
+                </div>
+                <div class="col-sm-3">
+                    <h6>Newsletter</h6>
+                    <div class="newsletter">
+                        <input type="email" class="form-control" placeholder="Eg: email@example.com">
+                        <button class="btn btn-primary mt-2" type="button">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        // Example JavaScript to control the carousel
+        var myCarousel = document.querySelector('#carouselExampleIndicators');
+        var carousel = new bootstrap.Carousel(myCarousel, {
+            interval: 3000, // Set the carousel to auto-slide every 3 seconds
+            wrap: true // Loop the carousel after the last item
+        });
+
+        // You can also programmatically control the carousel
+        // Example: Move to the next item after 5 seconds
+        setTimeout(() => {
+            carousel.next();
+        }, 5000);
+    </script>
+
 
 </body>
 </html>
