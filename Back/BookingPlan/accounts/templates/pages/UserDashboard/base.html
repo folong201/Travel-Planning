@@ -39,32 +39,36 @@
     <div class="sidebar bg-primary">
         <div class="profile">
             <img src="https://via.placeholder.com/80" alt="Profile Image">
-            <h5>Emmanuella</h5>
-            <a href="#" class="text-white">Edit Profile</a>
+            {% if user.is_authenticated %}
+                <h5>{{ user.username }}</h5> 
+            {% else %}
+                <h5>Hello, Guest!</h5>
+            {% endif %}
+            <a href="{% url 'edit_profile' %}" class="text-white">Edit Profile</a>
         </div>
         <div class="menu">
             <div class="menu-item1">
-                <img src="./../../Assets/images/logos/destination.png" alt="Destination" >
+                <img src="./../../../static/images/logos/destination.png" alt="Destination" >
                 <a href="{% url 'destination' %}">Destination</a>
             </div>
             <div class="menu-item">
-                <img src="./../../Assets/images/logos/Public Transportation.png" alt="Transport">
+                <img src="./../../../static/images/logos/Public Transportation.png" alt="Transport">
                 <a href="{% url 'agency' %}">Transport</a>
             </div>
             <div class="menu-item">
-                <img src="./../../Assets/images/logos/Person at Home.png" alt="Stay">
+                <img src="./../../../static/images/logos/Person at Home.png" alt="Stay">
                 <a href="{% url 'stays' %}">Stays</a>
             </div>
             <div class="menu-item">
-                <img src="./../../Assets/images/logos/Planner.png" alt="Schedule">
+                <img src="./../../../static/images/logos/Planner.png" alt="Schedule">
                 <a href="{% url 'schedule' %}">Schedule</a>
             </div>
             <div class="menu-item">
-                <img src="./../../Assets/images/logos/Beach.png" alt="Travel Tips">
+                <img src="./../../../static/images/logos/Beach.png" alt="Travel Tips">
                 <a href="{% url 'tips' %}">Travel Tips</a>
             </div>
             <div class="settings">  
-                <img src="./../../Assets/images/logos/settings.png" alt="Settings">
+                <img src="./../../../static/images/logos/settings.png" alt="Settings">
                 <a href="#">Settings</a>
             </div>
         </div>
@@ -85,10 +89,10 @@
                 <div class="col-sm-3">
                     <h6>Socials</h6>
                     <div class="social-icons">
-                        <a href="#"><img src="./../../Assets/images/logos/linkedin.webp" alt="LinkedIn"></a>
-                        <a href="#"><img src="./../../Assets/images/logos/twitter.png" alt="Twitter"></a>
-                        <a href="#"><img src="./../../Assets/images/logos/facebook.png" alt="Facebook"></a>
-                        <a href="#"><img src="./../../Assets/images/logos/insta.webp" alt="Instagram"></a>
+                        <a href="#"><img src="./../../../static/images/logos/linkedin.webp" alt="LinkedIn"></a>
+                        <a href="#"><img src="./../../../static/images/logos/twitter.png" alt="Twitter"></a>
+                        <a href="#"><img src="./../../../static/images/logos/facebook.png" alt="Facebook"></a>
+                        <a href="#"><img src="./../../../static/images/logos/insta.webp" alt="Instagram"></a>
                     </div>
                 </div>
                 <div class="col-sm-3">

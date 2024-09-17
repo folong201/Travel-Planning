@@ -1,0 +1,12 @@
+<h1>Available Accommodations</h1>
+<ul>
+    {% for accommodation in accommodations %}
+        <li>
+            <h3>{{ accommodation.name }}</h3>
+            <img src="{{accommodation.img.url}}" alt="{{accommodation.name}}">
+            <p>{{ accommodation.location }}</p>
+            <p>Price per night: {{ accommodation.price_per_night }} FCFA</p>
+            <a href="{% url 'accommodation_detail' accommodation.pk %}">View Details</a>
+        </li>
+    {% endfor %}
+</ul>

@@ -3,8 +3,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import Profile, Destination
+from .models import Profile, Destination, Accommodation, Booking
 from .forms import ProfileForm
+from datetime import datetime, date
 
 
 def signup_view(request):
@@ -24,7 +25,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('create_profile')
+            return redirect('destination')
         else:
             messages.error(request, 'pages/login.html', {'error': 'Wrong username or password'})
         
@@ -89,6 +90,63 @@ def create_destination(request):
             messages.error(request, "Please fill in all the required fields.")
     
     return render(request, 'destination/create_destination.html')
+
+def destination_list(request):
+    query = request.GET.get('q')  
+    if query:
+        destinations = Destination.objects.filter(name__icontains=query) | Destination.objects.filter(city__icontains=query) 
+    else:
+        destinations = Destination.objects.all()
+    
+    return render(request, 'pages/UserDashboard/destination.html', {'destinations': destinations, 'query': query})
+
+def destination_detail(request, pk):
+    destination = get_object_or_404(Destination, pk=pk)
+    return render(request, 'destination/destination_detail.html', {'destination': destination})
+
+
+def accommodation_list(request):
+    accommodations = Accommodation.objects.all()
+    return render(request, 'pages/UserDashboard/accommodation_list.html', {'accommodations': accommodations})
+
+def accommodation_detail(request, pk):
+    accommodation = get_object_or_404(Accommodation, pk=pk)
+
+    if request.method == 'POST':
+        check_in_date = request.POST.get('check_in_date')
+        check_out_date = request.POST.get('check_out_date')
+
+        # Convert string dates to datetime.date objects
+        if check_in_date and check_out_date:
+            check_in_date = datetime.strptime(check_in_date, '%Y-%m-%d').date()
+            check_out_date = datetime.strptime(check_out_date, '%Y-%m-%d').date()
+
+            if check_in_date < date.today():
+                messages.error(request, "Check-in date cannot be in the past.")
+            elif check_out_date <= check_in_date:
+                messages.error(request, "Check-out date must be after the check-in date.")
+            else:
+                nights = (check_out_date - check_in_date).days
+                total_price = accommodation.price_per_night * nights
+
+                booking = Booking.objects.create(
+                    user=request.user,
+                    accommodation=accommodation,
+                    check_in_date=check_in_date,
+                    check_out_date=check_out_date,
+                    total_price=total_price
+                )
+
+                messages.success(request, f'Booking successful! Total price: {total_price}')
+                return redirect('booking_detail', pk=booking.pk)
+        else:
+            messages.error(request, "Please select valid check-in and check-out dates.")
+
+    return render(request, 'pages/UserDashboard/accommodation_detail.html', {'accommodation': accommodation})
+
+def booking_detail(request, pk):
+    booking = get_object_or_404(Booking, pk=pk)
+    return render(request, 'pages/UserDashboard/booking_detail.html', {'booking': booking})
 
 
 

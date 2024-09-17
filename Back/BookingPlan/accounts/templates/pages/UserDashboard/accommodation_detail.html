@@ -1,0 +1,17 @@
+<h1>{{ accommodation.name }}</h1>
+<img src="{{ accommodation.image.url }}" alt="{{ accommodation.name }}">
+<p>Location: {{ accommodation.location }}</p>
+<p>Price per night: ${{ accommodation.price_per_night }}</p>
+<p>Accommodation Type: {{ accommodation.get_type_of_accommodation_display }}</p>
+
+<h2>Book Now</h2>
+<form method="POST">
+    {% csrf_token %}
+    <label>Check-in Date:</label>
+    <input type="date" name="check_in_date" required><br>
+    
+    <label>Check-out Date:</label>
+    <input type="date" name="check_out_date" required><br>
+    
+    <button type="submit">Book Accommodation</button>
+</form>

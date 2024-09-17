@@ -1,10 +1,18 @@
-{% extends "base.html" %}
+{% extends "pages/UserDashboard/base.html" %}
 
 {% block content %}
         <div class="container">
             <div class="search-bar">
-                <input type="text" placeholder="Find your destination">
-                <button><i class="fa fa-search"></i></button>
+                <input type="text" name="q" placeholder="Search by name or city" value="{{ query }}">
+                <button type="submit">Search</button>
+                
+                <ul>
+                    {% for destination in destinations %}
+                        <li><a href="{% url 'destination_detail' destination.pk %}">{{ destination.name }} - {{ destination.city }}</a></li>
+                    {% empty %}
+                        <li>No destinations found.</li>
+                    {% endfor %}
+                </ul>
             </div>
         
             <div class="destination">
