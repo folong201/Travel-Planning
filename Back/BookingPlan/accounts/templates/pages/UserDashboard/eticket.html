@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .ticket-details {
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid #333;
+            width: 80%;
+        }
+        .ticket-details p {
+            font-size: 18px;
+        }
+        .ticket-details h3 {
+            text-align: left;
+        }
+    </style>
+    <title>E-Ticket</title>
+</head>
+<body>
+
+    <h1>Booking E-Ticket</h1>
+    <h2>{{ booking.accommodation.name }}</h2>
+
+    <div class="ticket-details">
+        <h3>Booking Details:</h3>
+        <p><strong>Booking ID:</strong> {{ booking.id }}</p>
+        <p><strong>Accommodation:</strong> {{ booking.accommodation.name }}</p>
+        <p><strong>Location:</strong> {{booking.accommodation.town}}, {{ booking.accommodation.location }}</p>
+        <p><strong>Check-in Date:</strong> {{ booking.check_in_date }}</p>
+        <p><strong>Check-out Date:</strong> {{ booking.check_out_date }}</p>
+        <p><strong>Total Price:</strong> {{ booking.total_price }} FCFA</p>
+
+        <h3>User Details:</h3>
+        <p><strong>Name:</strong> {{ booking.user.username }}</p>
+        <p><strong>Email:</strong> {{ booking.user.email }}</p>
+
+        <h3>Contact Information:</h3>
+        <p>If you have any questions regarding your booking, feel free to contact us at {{ booking.accommodation.phone_number}}</p>
+    </div>
+
+</body>
+</html>

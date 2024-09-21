@@ -12,12 +12,15 @@ urlpatterns = [
     path('destination_detail/', views.destination_detail, name='destination_detail'),
     path('edit_profile/', views.edit_profile, name='edit_profile'),
     path('create_profile/', views.create_profile, name='create_profile'),
+
     path('accommodations/', views.accommodation_list, name='accommodation_list'),
     path('accommodation/<int:pk>/', views.accommodation_detail, name='accommodation_detail'),
     path('booking/<int:pk>/', views.booking_detail, name='booking_detail'),
+    path('booking/<int:pk>/eticket/', views.generate_eticket, name='generate_eticket'),
+    
+    path('agencies/', views.agencies_list, name='agencies_list'),
 
 
-    path('agency/', views.agency_view, name='agency'),
     path('stays/', views.stays_view, name='stays'),
     path('schedule/', views.stays_view, name='schedule'),
     path('tips/', views.tips_view, name='tips'),

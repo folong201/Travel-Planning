@@ -3,9 +3,12 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import Profile, Destination, Accommodation, Booking
+from django.template.loader import render_to_string
+from django.http import HttpResponse
+from .models import Profile, Destination, Accommodation, Booking, Agency
 from .forms import ProfileForm
 from datetime import datetime, date
+from weasyprint import HTML
 
 
 def signup_view(request):
@@ -27,7 +30,7 @@ def login_view(request):
             login(request, user)
             return redirect('destination')
         else:
-            messages.error(request, 'pages/login.html', {'error': 'Wrong username or password'})
+            messages.error(request, 'Wrong username or password')
         
     return render(request, 'pages/login.html')
 
@@ -67,6 +70,12 @@ def edit_profile(request):
 
         return render(request, 'pages/editProfile.html', {'form': form})
 
+
+###############################################################################################
+#                    Destination View
+###############################################################################################
+
+
 def create_destination(request):
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -105,10 +114,21 @@ def destination_detail(request, pk):
     return render(request, 'destination/destination_detail.html', {'destination': destination})
 
 
-def accommodation_list(request):
-    accommodations = Accommodation.objects.all()
-    return render(request, 'pages/UserDashboard/accommodation_list.html', {'accommodations': accommodations})
+###############################################################################################
+#                    Accommodation and Booking View
+###############################################################################################
 
+
+def accommodation_list(request):
+    hotels = Accommodation.objects.filter(type_of_accommodation='Hotel')
+    apartments = Accommodation.objects.filter(type_of_accommodation='Apartment')
+    villas = Accommodation.objects.filter(type_of_accommodation='Villa')
+
+    return render(request, 'pages/UserDashboard/accommodation_list.html', {
+        'hotels': hotels,
+        'apartments': apartments,
+        'villas': villas
+    })
 def accommodation_detail(request, pk):
     accommodation = get_object_or_404(Accommodation, pk=pk)
 
@@ -137,7 +157,6 @@ def accommodation_detail(request, pk):
                     total_price=total_price
                 )
 
-                messages.success(request, f'Booking successful! Total price: {total_price}')
                 return redirect('booking_detail', pk=booking.pk)
         else:
             messages.error(request, "Please select valid check-in and check-out dates.")
@@ -147,6 +166,35 @@ def accommodation_detail(request, pk):
 def booking_detail(request, pk):
     booking = get_object_or_404(Booking, pk=pk)
     return render(request, 'pages/UserDashboard/booking_detail.html', {'booking': booking})
+
+def generate_eticket(request, pk):
+    booking = get_object_or_404(Booking, pk=pk)
+
+    # Render the HTML template with the booking details
+    html_string = render_to_string('pages/UserDashboard/eticket.html', {'booking': booking})
+
+    # Create an HttpResponse object and set the content type to application/pdf
+    response = HttpResponse(content_type='application/pdf')
+
+    # Set the file name for the downloaded PDF
+    response['Content-Disposition'] = f'attachment; filename="e-ticket-{booking.id}.pdf"'
+
+    # Convert the HTML string to PDF using WeasyPrint
+    HTML(string=html_string).write_pdf(response)
+
+    return response
+
+###############################################################################################
+#                    Agency View
+###############################################################################################
+
+
+def agencies_list(request):
+    agencies = Agency.objects.all() 
+    return render(request, 'pages/UserDashboard/agency_list.html', {'agencies': agencies})
+
+
+
 
 
 

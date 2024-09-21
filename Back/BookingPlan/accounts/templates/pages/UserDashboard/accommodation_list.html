@@ -1,12 +1,92 @@
-<h1>Available Accommodations</h1>
-<ul>
-    {% for accommodation in accommodations %}
-        <li>
-            <h3>{{ accommodation.name }}</h3>
-            <img src="{{accommodation.img.url}}" alt="{{accommodation.name}}">
-            <p>{{ accommodation.location }}</p>
-            <p>Price per night: {{ accommodation.price_per_night }} FCFA</p>
-            <a href="{% url 'accommodation_detail' accommodation.pk %}">View Details</a>
-        </li>
-    {% endfor %}
-</ul>
+{% extends "pages/UserDashboard/base.html" %}
+
+{% block content %}
+
+
+
+
+
+
+   <div class="content">
+
+    <h1>Accommodations</h1>
+
+    <h2>Hotels</h2>
+    <ul>
+        {% for hotels in accommodation %}
+            <li>
+                <h4>Lorem ipsum dolor sit amet.</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <h3>{{ hotel.name }}</h3>
+                <p>Location: {{ hotel.location }}</p>
+                <p>Price per night: ${{ hotel.price_per_night }}</p>
+                <img src="{{ hotel.image.url }}" alt="{{ hotel.name }}" width="200">
+            </li>
+        {% empty %}
+            <p>No hotels available.</p>
+        {% endfor %}
+    </ul>
+
+    <h2>Apartments</h2>
+    <ul>
+        {% for apartment in apartments %}
+            <li>
+                <h3>{{ apartment.name }}</h3>
+                <p>Location: {{ apartment.location }}</p>
+                <p>Price per night: ${{ apartment.price_per_night }}</p>
+                <img src="{{ apartment.image.url }}" alt="{{ apartment.name }}" width="200">
+            </li>
+        {% empty %}
+            <p>No apartments available.</p>
+        {% endfor %}
+    </ul>
+
+    <h2>Villas</h2>
+    <ul>
+        {% for villa in villas %}
+            <li>
+                <h3>{{ villa.name }}</h3>
+                <p>Location: {{ villa.location }}</p>
+                <p>Price per night: ${{ villa.price_per_night }}</p>
+                <img src="{{ villa.image.url }}" alt="{{ villa.name }}" width="200">
+            </li>
+        {% empty %}
+            <p>No villas available.</p>
+        {% endfor %}
+    </ul>
+
+
+     <!--      <div class="input">
+            <div class="group">
+                <input type="text" class="form-control" placeholder="Where are you going?" aria-label="Location">
+            </div>
+            <div class="group">
+                <input type="date" placeholder="Arrival date">
+            </div>
+            <div class="group">
+                <input type="date" placeholder="Departure date">
+            </div>
+            <button class="btn btn-primary ">Search</button>
+        </div>
+
+        {% for accommodation in accommodations %}
+            <div class="hotel-card row">
+                <div class="col-md-3">
+                    <img src="{{accommodation.img.url}}" alt="{{accommodation.name}}" class="img-fluid rounded">
+                </div>
+                <div class="col-md-9">
+                    <h3>{{ accommodation.name }} <span class="text-warning">★★★</span></h3>
+                    <p><i class="bi bi-geo-alt-fill"></i> {{ accommodation.location }}, {{accommodation.town}}</p>
+                    <p>Set in Douala, 500 metres from Douala Museum, ONOMO Hotel Douala offers accommodation with an outdoor swimming pool, free private parking, a fitness centre, and a shared lounge.</p>
+                    <div class="d-flex justify-content-between">
+                        <p class="hotel-price">XAF {{ accommodation.price_per_night }} per night</p>
+                        <a href="{% url 'accommodation_detail' accommodation.pk %}" class="btn availability-btn">Check availability</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %} -->
+    </div> 
+
+{% endblock %}
+
+

@@ -1,7 +1,43 @@
+<style>
+    .alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.alert-success {
+    background-color: #4caf50; /* Green */
+}
+
+.alert-danger {
+    background-color: #f44336; /* Red */
+}
+
+.alert-dismissible .btn-close {
+    background: transparent;
+    border: none;
+}
+
+</style>
+
+{% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+
 <h1>{{ accommodation.name }}</h1>
-<img src="{{ accommodation.image.url }}" alt="{{ accommodation.name }}">
+<img src="{{ accommodation.image.url }}" alt="{{ accommodation.name }}"> 
 <p>Location: {{ accommodation.location }}</p>
-<p>Price per night: ${{ accommodation.price_per_night }}</p>
+<p>Price per night: {{ accommodation.price_per_night }} FCFA</p>
+<p>Phone Number: {{accommodation.phone_number}}</p>
 <p>Accommodation Type: {{ accommodation.get_type_of_accommodation_display }}</p>
 
 <h2>Book Now</h2>
