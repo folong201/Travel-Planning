@@ -34,6 +34,7 @@ class Accommodation(models.Model):
     name = models.CharField(max_length=255)
     town = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
+    # description = models.TextField(max_length=255)
     image = models.ImageField(upload_to='images/accommodations/', null=True, blank=True)  
     price_per_night = models.DecimalField(max_digits=10, decimal_places=2) 
     phone_number = models.CharField(max_length=15)

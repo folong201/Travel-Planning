@@ -1,0 +1,54 @@
+{% extends "pages/UserDashboard/base.html" %}
+
+{% block content %}
+    <div class="content">
+
+        <div class="input">
+            <div class="group">
+                <input type="text" class="form-control" placeholder="Where are you going?" aria-label="Location">
+            </div>
+            <div class="group">
+                <input type="date" placeholder="Arrival date">
+            </div>
+            <div class="group">
+                <input type="date" placeholder="Departure date">
+            </div>
+            <button class="btn btn-primary ">Search</button>
+        </div>
+
+        <div class="hotel-card row">
+            <div class="col-md-3">
+                <img src="./../../Assets/images/accommodations/Douala/Onomo hotel.jpg" alt="ONOMO Hotel Douala" class="img-fluid rounded">
+            </div>
+            <div class="col-md-9">
+                <h3>ONOMO Hotel Douala <span class="text-warning">★★★</span></h3>
+                <p><i class="bi bi-geo-alt-fill"></i> Avenue Charles de GAULLE, Douala</p>
+                <p>Set in Douala, 500 metres from Douala Museum, ONOMO Hotel Douala offers accommodation with an outdoor swimming pool, free private parking, a fitness centre, and a shared lounge.</p>
+                <p class="hotel-rating">Very good <span class="badge bg-success">8.1</span> <small>558 reviews</small></p>
+                <div class="d-flex justify-content-between">
+                    <p class="hotel-price">XAF 73,100 per night</p>
+                    <a href="#" class="btn availability-btn">Check availability</a>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Hotel 2 -->
+        <div class="hotel-card row">
+            <div class="col-md-3">
+                <img src="hotel2.jpg" alt="Hotel Royal Palace" class="img-fluid rounded">
+            </div>
+            <div class="col-md-9">
+                <h3>Hotel Royal Palace <span class="text-warning">★★★</span></h3>
+                <p><i class="bi bi-geo-alt-fill"></i> Hotel Royal Palace Douala Bonaberi, Douala</p>
+                <p>Situated in Douala, 43 km from Tiko Golf Club, Hotel Royal Palace features accommodation with an outdoor swimming pool, free private parking, a terrace, and a restaurant.</p>
+                <p class="hotel-rating">Good <span class="badge bg-warning">7.9</span> <small>38 reviews</small></p>
+                <div class="d-flex justify-content-between">
+                    <p class="hotel-price">XAF 46,000 per night</p>
+                    <a href="#" class="btn availability-btn">Check availability</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{%endblock%}

@@ -111,7 +111,7 @@ def destination_list(request):
 
 def destination_detail(request, pk):
     destination = get_object_or_404(Destination, pk=pk)
-    return render(request, 'destination/destination_detail.html', {'destination': destination})
+    return render(request, 'pages/UserDashboard/doualaStays.html', {'destination': destination})
 
 
 ###############################################################################################
@@ -120,15 +120,19 @@ def destination_detail(request, pk):
 
 
 def accommodation_list(request):
-    hotels = Accommodation.objects.filter(type_of_accommodation='Hotel')
-    apartments = Accommodation.objects.filter(type_of_accommodation='Apartment')
-    villas = Accommodation.objects.filter(type_of_accommodation='Villa')
+    accommodations = Accommodation.objects.all()
+    return render(request, 'pages/UserDashboard/accommodation_list.html', {'accommodations': accommodations})
 
-    return render(request, 'pages/UserDashboard/accommodation_list.html', {
-        'hotels': hotels,
-        'apartments': apartments,
-        'villas': villas
-    })
+    # hotels = Accommodation.objects.filter(type_of_accommodation='Hotel')
+    # apartments = Accommodation.objects.filter(type_of_accommodation='Apartment')
+    # villas = Accommodation.objects.filter(type_of_accommodation='Villa')
+
+    # return render(request, 'pages/UserDashboard/accommodation_list.html', {
+    #     'hotels': hotels,
+    #     'apartments': apartments,
+    #     'villas': villas
+    # })
+
 def accommodation_detail(request, pk):
     accommodation = get_object_or_404(Accommodation, pk=pk)
 

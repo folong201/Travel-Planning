@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.signup{
+    background: url('./../images/auth1.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.card {
+    background-color: white;
+    border-radius: 15px;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #007BFF;
+    border-color: #000000;
+}
+
+/* @media (max-width: 768px) {
+    .card {
+        margin: 20px;
+    }
+} */

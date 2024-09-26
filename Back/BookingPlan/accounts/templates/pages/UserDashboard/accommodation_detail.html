@@ -39,12 +39,14 @@
 <p>Price per night: {{ accommodation.price_per_night }} FCFA</p>
 <p>Phone Number: {{accommodation.phone_number}}</p>
 <p>Accommodation Type: {{ accommodation.get_type_of_accommodation_display }}</p>
+<p>Town: {{destination.name}}</p>
+
 
 <h2>Book Now</h2>
 <form method="POST">
     {% csrf_token %}
     <label>Check-in Date:</label>
-    <input type="date" name="check_in_date" required><br>
+    <input type="date" name="check_in_date" required><br>:
     
     <label>Check-out Date:</label>
     <input type="date" name="check_out_date" required><br>

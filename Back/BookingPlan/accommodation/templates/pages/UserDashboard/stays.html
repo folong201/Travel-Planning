@@ -1,0 +1,55 @@
+{% extends "pages/UserDashboard/base.html" %}
+
+{% block content %}
+
+    <div class="content">
+
+        <div class="input">
+            <div class="group">
+                <input type="text" class="form-control" placeholder="Where are you going?" aria-label="Location">
+            </div>
+            <div class="group">
+                <input type="date" placeholder="Arrival date">
+            </div>
+            <div class="group">
+                <input type="date" placeholder="Departure date">
+            </div>
+            <button class="btn btn-primary ">Search</button>
+        </div>
+
+        <div class="accomodations">
+            <h4>Accomodation types in Cameroon</h4>
+            <div class="accomadation-group">
+                <div class="stay">
+                    <img src="./../../Assets/images/accommodations/hotels.jpg" alt="Hotels">
+                    <p><a href="{% url 'doualaStays' %}">Hotels</a></p>
+                </div>
+                <div class="stay">
+                    <div class="group-items">
+                        <div class="items">
+                            <img src="./../../Assets/images/accommodations/appartment.jpg" alt="Appartments">
+                            <p>Appartments</p>
+                        </div>
+                        <div class="items">
+                            <img src="./../../Assets/images/accommodations/villas.jpg" alt="Villas">
+                            <p>Villas</p>
+                        </div>
+                        <div class="items">
+                            <img src="./../../Assets/images/accommodations/guest house.jpg" alt="Guest House">
+                            <p>Guest House</p>
+                        </div>
+                        <div class="items">
+                            <img src="./../../Assets/images/accommodations/holiday home.jpg" alt="Holiday Home">
+                            <p>Holiday Home</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+
+
+    </div>
+
+{%endblock%}
