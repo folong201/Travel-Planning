@@ -1,5 +1,19 @@
 from django.contrib import admin
-from .models import Profile, Destination, Accommodation, Hotel, Booking, Agency
+from .models import CustomUser, Profile, Destination, Accommodation, Hotel, Booking, Agency
+from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth import get_user_model
+
+# Get the custom user model
+User = get_user_model()
+
+class CustomUserAdmin(UserAdmin):
+    list_display = ['username', 'email', 'password', 'roles', 'is_staff']
+
+    # This ensures only users with 'add_agency' permission (admins) can add agencies
+    def has_add_permission(self, request):
+        return request.user.is_superuser
+admin.site.register(CustomUser, CustomUserAdmin)
+
 
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'full_name', 'phone_number', 'address', 'travel_preferences', 'profile_picture')
@@ -24,5 +38,6 @@ class BookingAdmin(admin.ModelAdmin):
 admin.site.register(Booking, BookingAdmin)
 
 class AgencyAdmin(admin.ModelAdmin):
-    list_filter = ('name', 'location', 'simple_price', 'classic_price', 'vip_price')
+    list_display = ('name', 'image', 'agency_receptionist')
+    search_fields = ('name', 'description')
 admin.site.register(Agency, AgencyAdmin)

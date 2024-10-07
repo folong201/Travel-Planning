@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Agencies</title>
+</head>
+<body>
+    <h1>List of Agencies</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Agency Receptionist</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for agency in agencies %}
+                <tr>
+                    <td>{{ agency.name }}</td>
+                    <td>{{ agency.description }}</td>
+                    <td><img src="{% static agency.image %}" alt="{{ agency.name }}" width="100"></td>
+                    <td>
+                        {% if agency.agency_receptionist %}
+                            {{ agency.agency_receptionist.name }}
+                        {% else %}
+                            No receptionist assigned
+                        {% endif %}
+                    </td>
+                    <td>
+                        <button><a href="{% url 'update_agency' agency.id %}">Update</a></button>
+                    </td>
+                    <td>
+                        <button><a href="{% url 'delete_agency' agency.id %}">Delete</a></button>
+                    </td>                
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4">No agencies found.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'admin_home' %}">Admin Home</a>
+    <button><a href="{% url 'create_agency' %}">Create Agency</a></button>
+
+
+</body>
+</html>

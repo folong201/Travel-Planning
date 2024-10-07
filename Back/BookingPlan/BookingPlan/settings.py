@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'accounts',
-    'accommodation',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +131,6 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger',  
     messages.SUCCESS: 'success',
 }
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
+

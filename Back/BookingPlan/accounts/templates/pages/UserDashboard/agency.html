@@ -1,5 +1,5 @@
 {% extends "pages/UserDashboard/base.html" %}
-
+{% load static %}
 {% block content %}
     <div class="container">
         <div class="search-bar">
@@ -8,15 +8,18 @@
         </div>
 
         <div class="agency">
-            <div class="agency-item">
-                <img src="./../../Assets/images/agencies/touristique.png" alt="Touristique">
-                <div class="des">
-                    <h3>Touristique Logistique Voyage</h3>
-                    <p>Douala, Yaounde, Garoua</p>    
+            {% for agency in agencies %}
+                <div class="agency-item">
+                    <img src="{% static agency.image %}" alt="{{ agency.name }}">
+                    <div class="des">
+                        <h3>{{ agency.name }}</h3>
+                        <p>{{ agency.description }}</p>    
+                    </div>
+                    <button class="btn"><a href="./bookAgency.html">Travels</a></button>
                 </div>
-                <button class="btn"><a href="./bookAgency.html">Reserve Now</a></button>
-            </div>
-            <div class="agency-item">
+            {% endfor %}
+
+            <!-- <div class="agency-item">
                 <img src="./../../Assets/images/agencies/finex.jfif" alt="Finex" width="100px" height="65px">
                 <div class="des">
                     <h3>Finex Voyage (First National Express of Safety)</h3>
@@ -71,7 +74,7 @@
                     <p>Yaounde, Bamenda</p>    
                 </div>
                 <button class="btn"><a href="./bookAgency.html">Reserve Now</a></button>
-            </div>
+            </div> -->
         </div>
     </div>
         

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Agency</title>
+</head>
+<body>
+    <h2>Create Agency</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea><br>
+
+        <label for="image">Image:</label>
+        <input type="file" id="image" name="image" required><br>
+
+        <label for="agency_receptionist">Agency Receptionist:</label>
+        <select id="agency_receptionist" name="agency_receptionist">
+            <option value="">-- Select a receptionist --</option>
+            {% for receptionist in receptionists %}
+                <option value="{{ receptionist.id }}" {% if agency.agency_receptionist and agency.agency_receptionist.id == receptionist.id %}selected{% endif %}>
+                    {{ receptionist.name }} ({{ receptionist.email }})
+                </option>
+            {% endfor %}
+        </select><br>
+
+        <button type="submit">Create Agency</button>
+    </form>
+
+    <a href="{% url 'list_agencies' %}">Back to Agency List</a>
+</body>
+</html>

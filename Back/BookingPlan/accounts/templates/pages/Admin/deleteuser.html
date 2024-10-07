@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete User</title>
+</head>
+<body>
+    <h2>Are you sure you want to delete {{ user.username }}?</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Yes, delete user</button>
+        <a href="{% url 'admin_home' %}">Cancel</a>
+    </form>
+</body>
+</html>

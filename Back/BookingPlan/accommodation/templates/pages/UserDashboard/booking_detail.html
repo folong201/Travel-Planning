@@ -1,7 +1,0 @@
-<h1>Booking Confirmation</h1>
-<p>Thank you, {{ booking.user.username }}. Your booking for {{ booking.accommodation.name }} is confirmed!</p>
-<p>Check-in: {{ booking.check_in_date }}</p>
-<p>Check-out: {{ booking.check_out_date }}</p>
-<p>Total Price: {{ booking.total_price }} FCFA</p>
-
-<a href="{% url 'generate_eticket' booking.pk %}" class="btn btn-primary">Download E-Ticket</a>

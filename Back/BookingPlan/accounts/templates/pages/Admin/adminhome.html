@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <!-- <link rel="stylesheet" href="{% static 'css/Admin/home.css' %}"> -->
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    
+    <div class="dashboard-stats">
+        <div class="stat">
+            <h3>Total Users</h3>
+            <p>{{ total_users }}</p>
+        </div>
+        <div class="stat">
+            <h3>Total Clients</h3>
+            <p>{{ total_clients }}</p>
+        </div>
+        <div class="stat">
+            <h3>Total Agency Receptionists</h3>
+            <p>{{ total_receptionists }}</p>
+        </div>
+    </div>
+
+    <h1>All Users</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.roles }}</td>
+                    <td>{{ user.is_active|yesno:"Active,Inactive" }}</td>
+                    <td>
+                        <button><a href="{% url 'edit_user' user.id %}">Update</a></button>
+                    </td>
+                    <td>
+                        <button><a href="{% url 'delete_user' user.id %}">Delete</a></button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+
+    <!-- <h1>User List</h1>
+
+    <h2>Admin Users</h2>
+    <ul>
+        {% for user in users %}
+            <li>{{ user.username }} ({{ user.email }})</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Accommodation Receptionists</h2>
+    <ul>
+        {% for user in grouped_users.accommodation_receptionist %}
+            <li>{{ user.name }} ({{ user.email }})</li>
+        {% empty %}
+            <li>No accommodation receptionists found.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Agency Receptionists</h2>
+    <ul>
+        {% for user in grouped_users.agency_receptionist %}
+            <li>{{ user.name }} ({{ user.email }})</li>
+        {% empty %}
+            <li>No agency receptionists found.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Clients</h2>
+    <ul>
+        {% for user in grouped_users.client %}
+            <li>{{ user.name }} ({{ user.email }})</li>
+        {% empty %}
+            <li>No clients found.</li>
+        {% endfor %}
+    </ul> -->
+
+    <br><br>
+    <button><a href="{% url 'create_receptionist' %}">Create Receptionist</a></button>
+    <button><a href="{% url 'create_agency' %}">Create Agency</a></button>
+    <a href="{% url 'list_agencies' %}">Agency List</a>
+
+    
+</body>
+</html>
