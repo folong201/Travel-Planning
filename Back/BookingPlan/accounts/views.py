@@ -10,7 +10,7 @@ from .models import CustomUser, Agency, Profile, Destination, Accommodation, Boo
 from .forms import ProfileForm
 from django.conf import settings
 from datetime import datetime, date
-from weasyprint import HTML
+# from weasyprint import HTML
 from django.contrib.auth import get_user_model
 
 User = get_user_model()  # This will return the custom user model
